@@ -7,7 +7,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+  <% if current_user %>
+    <h3>
+      IdeaBox | <%= current_user.name.capitalize %> |
+      <%= link_to 'Logout', logout_path, method: :delete %>
+    </h3>
+  <% end %>
 <%= yield %>
 
 </body>
