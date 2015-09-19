@@ -3,17 +3,25 @@
 <head>
   <title>IdeaBox</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <% if current_user %>
-    <h3>
-      IdeaBox | <%= current_user.name.capitalize %> |
-      <%= link_to 'Logout', logout_path, method: :delete %>
-    </h3>
-  <% end %>
+  <nav>
+    <% if current_user %>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo" style="padding-left: 10px;">IdeaBox</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><%= current_user.name.capitalize %></li>
+          <li><%= link_to 'Logout', logout_path, method: :delete %></li>
+        </ul>
+      </div>
+    <% end %>
+  </nav>
+<div class="container">
 <%= yield %>
-
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
 </body>
 </html>
