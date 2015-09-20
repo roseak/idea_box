@@ -1,9 +1,9 @@
 <h1 class="center">All Categories</h1>
 <ul class="collection">
   <% @categories.each do |category| %>
-    <li class="collection-item"><%= category.name %></li>
+    <li class="collection-item"><%= category.name %><div class="secondary-content"><%= link_to 'Delete', admin_category_path(category), method: :delete %></div></li>
   <% end %>
 </ul>
 
 
-<%= link_to 'Create New Category', '/admin/categories/new' %>
+<div class="center"><%= link_to 'Create New Category', '/admin/categories/new' %></div>

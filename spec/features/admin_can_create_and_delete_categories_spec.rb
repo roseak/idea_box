@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Admin can create categories' do
+feature 'Admin can create and delete categories' do
   scenario 'with valid attributes' do
     admin = User.create(name: 'admin',
                         password: 'password',
@@ -20,5 +20,8 @@ feature 'Admin can create categories' do
 
     expect(current_path).to eq('/admin/categories')
     expect(page).to have_content('trip')
+
+    click_on 'Delete'
+    expect(page).to_not have_content('trip')
   end
 end

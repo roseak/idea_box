@@ -1,0 +1,7 @@
+<h3 class="center">Edit the category below.</h3>
+
+<%= form_for(:category, url: admin_categories_path) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, value: current_category.name %>
+  <%= f.submit 'Update' %>
+<% end %>
