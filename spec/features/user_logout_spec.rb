@@ -7,9 +7,13 @@ feature 'User logs out' do
     visit login_path
     fill_in 'session[name]', with: 'rose'
     fill_in 'session[password]', with: 'secret'
-    click_on 'Login'
 
-    expect(current_path).to eq('/users/1')
+    within('.container') do
+      click_on 'Login'
+    end
+
+    expect(page).to have_content('Rose')
+    expect(current_path).to eq('/users/2')
 
     click_on 'Logout'
 

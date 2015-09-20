@@ -1,0 +1,7 @@
+<h3 class="center">Please enter a new category below.</h3>
+
+<%= form_for(:category, url: admin_categories_path) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+  <%= f.submit 'Submit' %>
+<% end %>

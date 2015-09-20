@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'User creates a new account' do
-  xscenario 'with valid attributes' do
+  scenario 'with valid attributes' do
     visit root_path
     expect(current_path).to eq('/')
 
@@ -14,11 +14,11 @@ feature 'User creates a new account' do
     click_on 'Sign up'
 
     expect(current_path).to eq('/users/1')
-    within('.profile') do
+    within('.container') do
       expect(page).to have_content('Rose')
     end
 
-    within('.navbar') do
+    within('.nav-wrapper') do
       expect(page).to have_content('IdeaBox')
       expect(page).to have_content('Rose')
     end

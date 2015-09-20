@@ -1,0 +1,9 @@
+<h1 class="center">All Categories</h1>
+<ul class="collection">
+  <% @categories.each do |category| %>
+    <li class="collection-item"><%= category.name %></li>
+  <% end %>
+</ul>
+
+
+<%= link_to 'Create New Category', '/admin/categories/new' %>
